@@ -1,8 +1,6 @@
 import logo from './logo.svg';
 import './App.css';
-const example = 'Прекрасный пример!';
-const exampleLogic = true;
-const exampleTernary = false;
+import {count, length} from './number';
 
 function App() {
   return (
@@ -12,23 +10,8 @@ function App() {
         <p>
           Edit <code>src/App.js</code> and save to reload.
         </p>
-        <p style = {{
-          color: 'blue',
-          shadowSize: 2,
-          fontSize: 55-30
-        }}>
-          Hello World!!
-        </p>
-        <p>{example}</p>
         <p>
-          {exampleLogic || 'exampleLogic is false'}
-        </p>
-        <p>
-          {exampleTernary ? 'exampleTernary is true' : 'exampleTernary is false'}
-          {undefined}
-          {null}
-          {false}
-          {true}
+          {count*length}
         </p>
         <a
           className="App-link"
