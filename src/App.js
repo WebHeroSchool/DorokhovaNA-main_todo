@@ -1,4 +1,5 @@
 import React from 'react';
+<<<<<<< Updated upstream
 import logo from './logo.svg';
 import './App.css';
 const example = 'Прекрасный пример!';
@@ -45,3 +46,11 @@ function App() {
 }
 
 export default App;
+=======
+const element = (<div>
+  Hello World!!
+  <a href = "">go to</a>
+</div>);
+
+export { element };
+>>>>>>> Stashed changes
