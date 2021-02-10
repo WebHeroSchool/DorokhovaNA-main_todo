@@ -1,6 +1,7 @@
 import React from 'react';
 import ItemList from '../ItemList/ItemList';
 import Footer from '../Footer/Footer';
+import './App.css';
 
 const todoItem = 'Проанализировать партнерский и зарплатный канал';
 const App = () => {
@@ -16,8 +17,8 @@ const App = () => {
       }
   ];
   return (
-  <div>
-        <h1>Важные дела</h1>
+  <div className="wrap">
+        <h1 className="wrap__title">Важные дела</h1>
         <ItemList items={items} />
         <Footer count={3} />
   </div>);
