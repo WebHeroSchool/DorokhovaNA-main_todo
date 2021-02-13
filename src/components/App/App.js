@@ -4,8 +4,6 @@ import InputItem from '../InputItem/InputItem';
 import Footer from '../Footer/Footer';
 import styles from './App.module.css';
 
-
-const todoItem = 'Проанализировать партнерский и зарплатный канал';
 const App = () => {
   const items = [
       {
