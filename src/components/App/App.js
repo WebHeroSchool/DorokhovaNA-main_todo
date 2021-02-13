@@ -6,10 +6,9 @@ import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
 import styles from './App.module.css';
 
-
 class App extends React.Component {
-  render() {
-    const items = [
+  state = {
+    items: [
         {
           value: 'Проанализировать партнерский и зарплатный канал',
           isDone: true
@@ -22,14 +21,16 @@ class App extends React.Component {
           value: 'Подготовить аналитическую отчетность',
           isDone: true
         }
-    ];
+    ]
+  };
+  render() {
     return (
     <div className={styles.wrap}>
         <Card variant="outlined">
             <CardContent>
                 <h1 className={styles.title}>Важные дела:</h1>
                 <InputItem />
-                <ItemList items={items} />
+                <ItemList items={this.state.items} />
                 <Footer count={3} />
             </CardContent>
         </Card>
