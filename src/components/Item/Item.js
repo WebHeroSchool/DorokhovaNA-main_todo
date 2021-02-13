@@ -7,7 +7,7 @@ import Tooltip from '@material-ui/core/Tooltip';
 import styles from './Item.module.css';
 
 
-const Item = ({ value, isDone }) => (<div className = {
+const Item = ({ value, isDone, classes, onClickDone }) => (<div className = {
     classnames({
         [styles.item]: true,
         [styles.done]: isDone
@@ -17,6 +17,7 @@ const Item = ({ value, isDone }) => (<div className = {
         defaultChecked
         color="secondary"
         inputProps={{ 'aria-label': 'secondary checkbox' }}
+        onClick={() => onClickDone(isDone)}
      />
      {value}
      <Tooltip title="Delete">
