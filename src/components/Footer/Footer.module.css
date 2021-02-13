@@ -1,16 +1,16 @@
-body {
-  background: #c4c4c4;
-}
-
-.wrap {
+.footer {
   display: block;
-  margin: auto;
-  width: 700px;
+  justify-content: center;
 }
 
-.title {
+.text {
   display: block;
   font-family: Helvetica;
   color: red;
   text-align: center;
+  width: 600px;
+}
+
+.button {
+  left: 200px;
 }
