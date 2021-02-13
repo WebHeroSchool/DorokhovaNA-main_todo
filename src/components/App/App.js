@@ -23,7 +23,7 @@ const App = () => {
   ];
   return (
   <div className={styles.wrap}>
-        <h1 className={styles.title}>Важные дела</h1>
+        <h1 className={styles.title}>Важные дела:</h1>
         <InputItem />
         <ItemList items={items} />
         <Footer count={3} />

@@ -4,7 +4,7 @@ import TextField from '@material-ui/core/TextField';
 const InputItem = () => (<div>
   <TextField
       id="standard-full-width"
-      label="Добавить задачу"
+      label="Добавь задачу"
       style={{ margin: 8 }}
       placeholder="just do it!"
       helperText=""
