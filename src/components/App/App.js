@@ -24,14 +24,7 @@ class App extends React.Component {
     ]
   };
 
-  constructor(props) {
-    super(props);
-    this.onClickDone = this.onClickDone.bind(this);
-  }
-
-  onClickDone(isDone) {
-    console.log(isDone);
-  }
+  onClickDone = isDone => console.log(isDone);
 
   render() {
     return (
