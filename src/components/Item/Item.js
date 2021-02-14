@@ -6,8 +6,7 @@ import IconButton from '@material-ui/core/IconButton';
 import Tooltip from '@material-ui/core/Tooltip';
 import styles from './Item.module.css';
 
-
-const Item = ({ value, isDone, classes, onClickDone }) => (<div className = {
+const Item = ({ value, isDone, onClickDone, id, onClickDelete }) => (<div className = {
     classnames({
         [styles.item]: true,
         [styles.done]: isDone
@@ -17,11 +16,11 @@ const Item = ({ value, isDone, classes, onClickDone }) => (<div className = {
         defaultChecked
         color="secondary"
         inputProps={{ 'aria-label': 'secondary checkbox' }}
-        onClick={() => onClickDone(isDone)}
+        onClick={() => onClickDone(id)}
      />
      {value}
      <Tooltip title="Delete">
-        <IconButton aria-label="delete" color="secondary">
+        <IconButton aria-label="delete" color="secondary" onClick={() => onClickDelete(id)}>
           <DeleteIcon />
         </IconButton>
       </Tooltip>
