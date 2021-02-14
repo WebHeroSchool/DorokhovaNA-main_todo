@@ -4,5 +4,6 @@
 }
 
 .done {
-  color: #c4c4c4;
+  text-decoration: line-through;
+  font: 20px/33px Helvetica;
 }
