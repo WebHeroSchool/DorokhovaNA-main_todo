@@ -19,7 +19,7 @@ const InputItem = ({ OnClickAdd }) => (<Grid>
       variant="contained"
       color="secondary"
       fullWidth
-      OnClick={() => this.OnClickAdd()}
+      OnClick={OnClickAdd}
   >
       Добавить
   </Button>
