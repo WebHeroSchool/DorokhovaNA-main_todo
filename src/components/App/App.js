@@ -44,13 +44,27 @@ class App extends React.Component {
       this.setState({ items: newItemList })
   };
 
+  onClickAdd = value => this.setState(state => ({
+    items: [
+      ...state.items,
+      {
+        value: value,
+        isDone: false,
+        id: state.count + 1
+      }
+    ],
+    count: state.count + 1
+}));
+
+  onClickAdd = value => console.log(value);
+
   render() {
     return (
-    <div className={styles.wrap}>
+      <div className={styles.wrap}>
         <Card variant="outlined">
             <CardContent>
                 <h1 className={styles.title}>Важные дела:</h1>
-                <InputItem />
+                <InputItem OnClickAdd={this.OnClickAdd}/>
                 <ItemList items={this.state.items}
                     onClickDone={this.onClickDone}
                     onClickDelete={this.onClickDelete}
@@ -58,7 +72,7 @@ class App extends React.Component {
                 <Footer count={this.state.items.filter(item => !item.isDone).length} />
             </CardContent>
         </Card>
-    </div>);
+      </div>);
   }
 };
 

@@ -1,7 +1,10 @@
 import React from 'react';
 import TextField from '@material-ui/core/TextField';
+import Button from '@material-ui/core/Button';
+import Grid from '@material-ui/core/Grid';
 
-const InputItem = () => (<div>
+
+const InputItem = ({ OnClickAdd }) => (<Grid>
   <TextField
       id="standard-full-width"
       label="Добавь задачу"
@@ -11,7 +14,16 @@ const InputItem = () => (<div>
       fullWidth
       margin="normal"
   />
+  <Button
+      href=""
+      variant="contained"
+      color="secondary"
+      fullWidth
+      OnClick={() => this.OnClickAdd()}
+  >
+      Добавить
+  </Button>
 
-</div>);
+</Grid>);
 
 export default InputItem;
