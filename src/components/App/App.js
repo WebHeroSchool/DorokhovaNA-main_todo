@@ -25,7 +25,7 @@ class App extends React.Component {
           id: 3
         }
     ],
-    count: 3
+    count: 6
   };
 
   onClickDone = id => {
@@ -48,15 +48,15 @@ class App extends React.Component {
     items: [
       ...state.items,
       {
-        value: value,
-        isDone: false,
+        value,
+        isDone: true,
         id: state.count + 1
       }
     ],
     count: state.count + 1
 }));
 
-  onClickAdd = value => console.log(value);
+
 
   render() {
     return (
@@ -64,7 +64,7 @@ class App extends React.Component {
         <Card variant="outlined">
             <CardContent>
                 <h1 className={styles.title}>Важные дела:</h1>
-                <InputItem OnClickAdd={this.OnClickAdd}/>
+                <InputItem onClickAdd={this.onClickAdd}/>
                 <ItemList items={this.state.items}
                     onClickDone={this.onClickDone}
                     onClickDelete={this.onClickDelete}
