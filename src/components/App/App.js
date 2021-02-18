@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import ItemList from '../ItemList/ItemList';
 import InputItem from '../InputItem/InputItem';
 import Footer from '../Footer/Footer';
@@ -74,6 +75,10 @@ class App extends React.Component {
         </Card>
       </div>);
   }
+};
+
+App.propTypes = {
+    onClickAdd: PropTypes.func
 };
 
 export default App;

@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import Chip from '@material-ui/core/Chip';
 import Button from '@material-ui/core/Button';
 import styles from './Footer.module.css';
@@ -29,8 +30,8 @@ const Footer = ({ count }) => (
       </Button>
   </div>);
 
-  Footer.defaultProps = {
-    count: 0
+  Footer.propTypes = {
+    count: PropTypes.number.isRequired
   };
 
 export default Footer;
