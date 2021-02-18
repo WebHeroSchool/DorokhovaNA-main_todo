@@ -16,7 +16,7 @@ class App extends React.Component {
         },
         {
           value: 'Учесть конвертацию заявок в разрезе каждого канала',
-          isDone: true,
+          isDone: false,
           id: 2
         },
         {
@@ -49,7 +49,7 @@ class App extends React.Component {
       ...state.items,
       {
         value,
-        isDone: true,
+        isDone: false,
         id: state.count + 1
       }
     ],
@@ -69,7 +69,7 @@ class App extends React.Component {
                     onClickDone={this.onClickDone}
                     onClickDelete={this.onClickDelete}
                 />
-                <Footer count={this.state.items.filter(item => !item.isDone).length} />
+                <Footer />
             </CardContent>
         </Card>
       </div>);

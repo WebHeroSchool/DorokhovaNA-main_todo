@@ -13,6 +13,7 @@ const Item = ({ value, isDone, onClickDone, id, onClickDelete }) => (<div classN
     })
 }>
     <Checkbox
+        checked={isDone}
         defaultChecked
         color="secondary"
         inputProps={{ 'aria-label': 'secondary checkbox' }}
@@ -25,5 +26,9 @@ const Item = ({ value, isDone, onClickDone, id, onClickDelete }) => (<div classN
         </IconButton>
       </Tooltip>
 </div>);
+
+Item.defaultProps = {
+	  isDone: true
+};
 
 export default Item;
