@@ -1,5 +1,6 @@
 import React from 'react';
 import classnames from 'classnames';
+import PropTypes from 'prop-types';
 import Checkbox from '@material-ui/core/Checkbox';
 import DeleteIcon from '@material-ui/icons/Delete';
 import IconButton from '@material-ui/core/IconButton';
@@ -13,6 +14,7 @@ const Item = ({ value, isDone, onClickDone, id, onClickDelete }) => (<div classN
     })
 }>
     <Checkbox
+        checked={isDone}
         defaultChecked
         color="secondary"
         inputProps={{ 'aria-label': 'secondary checkbox' }}
@@ -25,5 +27,11 @@ const Item = ({ value, isDone, onClickDone, id, onClickDelete }) => (<div classN
         </IconButton>
       </Tooltip>
 </div>);
+
+Item.propTypes = {
+	  isDone: PropTypes.bool,
+    value: PropTypes.string,
+    id: PropTypes.number
+};
 
 export default Item;

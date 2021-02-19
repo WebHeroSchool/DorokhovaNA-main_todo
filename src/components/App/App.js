@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import ItemList from '../ItemList/ItemList';
 import InputItem from '../InputItem/InputItem';
 import Footer from '../Footer/Footer';
@@ -16,7 +17,7 @@ class App extends React.Component {
         },
         {
           value: 'Учесть конвертацию заявок в разрезе каждого канала',
-          isDone: true,
+          isDone: false,
           id: 2
         },
         {
@@ -49,7 +50,7 @@ class App extends React.Component {
       ...state.items,
       {
         value,
-        isDone: true,
+        isDone: false,
         id: state.count + 1
       }
     ],
@@ -69,11 +70,15 @@ class App extends React.Component {
                     onClickDone={this.onClickDone}
                     onClickDelete={this.onClickDelete}
                 />
-                <Footer count={this.state.items.filter(item => !item.isDone).length} />
+                <Footer />
             </CardContent>
         </Card>
       </div>);
   }
+};
+
+App.propTypes = {
+    onClickAdd: PropTypes.func
 };
 
 export default App;

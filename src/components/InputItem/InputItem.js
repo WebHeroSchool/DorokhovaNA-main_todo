@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
 import Grid from '@material-ui/core/Grid';
@@ -56,6 +57,10 @@ class InputItem extends React.Component {
 
           </Grid>);
     }
+}
+
+InputItem.propTypes = {
+    helperText: PropTypes.string
 }
 
 export default InputItem;
