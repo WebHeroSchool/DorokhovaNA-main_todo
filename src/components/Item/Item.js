@@ -7,26 +7,47 @@ import IconButton from '@material-ui/core/IconButton';
 import Tooltip from '@material-ui/core/Tooltip';
 import styles from './Item.module.css';
 
-const Item = ({ value, isDone, onClickDone, id, onClickDelete }) => (<div className = {
-    classnames({
-        [styles.item]: true,
-        [styles.done]: isDone
-    })
-}>
-    <Checkbox
-        checked={isDone}
-        defaultChecked
-        color="secondary"
-        inputProps={{ 'aria-label': 'secondary checkbox' }}
-        onClick={() => onClickDone(id)}
-     />
-     {value}
-     <Tooltip title="Delete">
-        <IconButton aria-label="delete" color="secondary" onClick={() => onClickDelete(id)}>
-          <DeleteIcon />
-        </IconButton>
-      </Tooltip>
-</div>);
+
+class Item extends React.Component {
+    componentDidMount() {
+        console.log('componentDidMount');
+    }
+
+    componentDidUpdate() {
+	  		console.log('componentDidUpdate');
+	  }
+
+	  componentWillUnmount() {
+		    console.log('componentWillUnmount');
+	  }
+
+    render() {
+      const { value, isDone, onClickDone, id, onClickDelete } = this.props;
+
+      return (<div className = {
+                classnames({
+                    [styles.item]: true,
+                    [styles.done]: isDone
+                })
+                }>
+                <Checkbox
+                    checked={isDone}
+                    defaultChecked
+                    color="secondary"
+                    inputProps={{ 'aria-label': 'secondary checkbox' }}
+                    onClick={() => onClickDone(id)}
+                 />
+                 {value}
+                 <Tooltip title="Delete">
+                    <IconButton aria-label="delete" color="secondary" onClick={() => onClickDelete(id)}>
+                      <DeleteIcon />
+                    </IconButton>
+                  </Tooltip>
+             </div>
+
+        )
+    }
+}
 
 Item.propTypes = {
 	  isDone: PropTypes.bool,

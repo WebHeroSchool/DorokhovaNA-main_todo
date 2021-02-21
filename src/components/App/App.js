@@ -70,7 +70,7 @@ class App extends React.Component {
                     onClickDone={this.onClickDone}
                     onClickDelete={this.onClickDelete}
                 />
-                <Footer />
+                <Footer count={this.state.items.filter(item => !item.isDone).length} />
             </CardContent>
         </Card>
       </div>);
