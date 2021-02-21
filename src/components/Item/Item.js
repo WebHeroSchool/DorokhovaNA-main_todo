@@ -10,16 +10,12 @@ import styles from './Item.module.css';
 
 class Item extends React.Component {
     componentDidMount() {
-        console.log('componentDidMount');
+        this.timerID = setInterval(() => console.log('interval'), 1000);
     }
 
-    componentDidUpdate() {
-	  		console.log('componentDidUpdate');
-	  }
-
-	  componentWillUnmount() {
-		    console.log('componentWillUnmount');
-	  }
+    componentWillUnmount() {
+        clearInterval(this.timerID);
+    }
 
     render() {
       const { value, isDone, onClickDone, id, onClickDelete } = this.props;
