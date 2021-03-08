@@ -5,32 +5,32 @@ import Button from '@material-ui/core/Button';
 import Grid from '@material-ui/core/Grid';
 
 class InputItem extends React.Component {
-    state = {
+
+      state = {
         inputValue: '',
         errorString: false,
         errorText: ''
     }
 
-    onButtonClick = () => {
-        if (this.state.inputValue !== '') {
-            this.setState ({
-                inputValue: '',
-                errorString: false,
-                errorText: ''
-            });
+    onButtonClick = (event) => {
+        event.preventDefault();
+        if (this.state.inputValue === '') {
+            this.setState ({errorString: true, errorText: 'Поле не может быть пустым'});
+        } else if (this.props.items.find(item => item.value === this.state.inputValue)) {
+              this.setState ({errorString: true, errorText: 'Данная задача была добавлена ранее'});
+          } else {
+                this.setState({
+                    inputValue: '',
+                    errorString: false,
+                    errorText: ''
+                });
+                this.props.onClickAdd(this.state.inputValue);
+            }
 
-            this.props.onClickAdd(this.state.inputValue);
+    };
 
-        } else {
-            this.setState({
-                errorString: true,
-                errorText: 'Поле не может быть пустым'
-            });
-        }
 
-    }
-
-    render() {
+  render() {
 
         return (<Grid>
             <TextField
@@ -43,7 +43,7 @@ class InputItem extends React.Component {
                 fullWidth
                 margin="normal"
                 value={this.state.inputValue}
-                onChange={event => this.setState({ inputValue: event.target.value.toUpperCase()})}
+                onChange={event => this.setState({ inputValue: event.target.value })}
             />
             <Button
                 href=""
@@ -57,10 +57,6 @@ class InputItem extends React.Component {
 
           </Grid>);
     }
-}
-
-InputItem.propTypes = {
-    helperText: PropTypes.string
 }
 
 export default InputItem;

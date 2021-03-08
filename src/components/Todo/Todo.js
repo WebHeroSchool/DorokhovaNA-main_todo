@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import CardContent from '@material-ui/core/CardContent';
 import PropTypes from 'prop-types';
 import Card from '@material-ui/core/Card';
-
 import ItemList from '../ItemList/ItemList';
 import InputItem from '../InputItem/InputItem';
 import Footer from '../Footer/Footer';
@@ -11,37 +10,22 @@ import styles from './Todo.module.css';
 
 const Todo = () => {
 	const initialState = {
-    items: [
-        {
-          value: 'Проанализировать партнерский и зарплатный канал',
-          isDone: true,
-          id: 1
-        },
-        {
-          value: 'Учесть конвертацию заявок в разрезе каждого канала',
-          isDone: false,
-          id: 2
-        },
-        {
-          value: 'Подготовить аналитическую отчетность',
-          isDone: true,
-          id: 3
-        },
-    ],
-    count: 6
+		items: JSON.parse(localStorage.getItem('items')) || [],
+    filter: 'all'
   };
 
-  const [items, setItems] = useState(initialState.items);
+	const [items, setItems] = useState(initialState.items);
 
-	const [count, setCount] =  useState(initialState.count);
+	const [count, setCount] =  useState(0);
+  const [filter, setFilter] = useState(initialState.filter);
+	let itemsFilter;
 
-	useEffect( () => {
-    console.log("update");
-  });
+	useEffect(() => {
+	    localStorage.setItem('items', JSON.stringify(items));
+	  });
 
-  useEffect( () => {
-      console.log('mount');
-    }, []);
+	const itemActive = (items.filter((item) => item.isDone === true)).length;
+	const itemDone = (items.filter((item) => item.isDone === false)).length;
 
     const onClickDone = id => {
   		const newItemList = items.map(item => {
@@ -77,17 +61,36 @@ const Todo = () => {
     setCount(count => count + 1);
 };
 
-  return (
+  const onClickFilter = filtered => setFilter(filtered);
+	switch (filter) {
+			case 'done':
+					itemsFilter = items.filter(item => !item.isDone);
+					break;
+			case 'active':
+					itemsFilter = items.filter(item => item.isDone);
+					break;
+			default:
+					itemsFilter = items;
+	}
+
+	 return (
       <div className={styles.wrap}>
         <Card variant="outlined">
             <CardContent>
                 <h1 className={styles.title}>Важные дела:</h1>
-                <InputItem onClickAdd={onClickAdd}/>
+                <InputItem items={items} onClickAdd={onClickAdd} />
                 <ItemList items={items}
                     onClickDone={onClickDone}
                     onClickDelete={onClickDelete}
+										items={itemsFilter}
                 />
-                <Footer count={items.filter(item => !item.isDone).length} />
+                <Footer
+										count={items.filter(item => !item.isDone).length}
+						        filtered={filter}
+						        itemActive={itemActive}
+						        itemDone={itemDone}
+						        onClickFilter={onClickFilter}
+										/>
             </CardContent>
         </Card>
       </div>);

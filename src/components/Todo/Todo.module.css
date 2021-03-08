@@ -5,12 +5,12 @@ body {
 .wrap {
   display: block;
   margin: auto;
-  width: 700px;
+  width: 500px;
 }
 
 .title {
   display: block;
-  font-family: Helvetica;
+  font-family: Arial;
   color: red;
   text-align: center;
 }
