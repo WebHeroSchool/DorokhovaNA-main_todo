@@ -1,6 +1,7 @@
 {
   "name": "todo",
   "version": "0.1.0",
+  "homepage": "https://webheroschool.github.io/DorokhovaNA-main_todo/",
   "private": true,
   "dependencies": {
     "@material-ui/icons": "^4.11.2",
@@ -18,9 +19,11 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "CI=false react-scripts build",
+    "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
   "eslintConfig": {
     "extends": [
@@ -42,6 +45,7 @@
   },
   "devDependencies": {
     "@material-ui/core": "^4.11.3",
-    "classnames": "^2.2.6"
+    "classnames": "^2.2.6",
+    "gh-pages": "^3.1.0"
   }
 }
