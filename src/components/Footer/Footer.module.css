@@ -1,16 +1,14 @@
 .footer {
-  display: block;
+  display: flex;
+  flex-direction: row;
   justify-content: center;
+  position: relative;
 }
 
 .text {
   display: block;
-  font-family: Helvetica;
+  font-family: Arial;
   color: red;
   text-align: center;
-  width: 600px;
-}
-
-.button {
-  left: 200px;
+  width: 500px;
 }

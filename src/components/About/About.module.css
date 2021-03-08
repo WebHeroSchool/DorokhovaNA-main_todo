@@ -1,6 +1,48 @@
 .title {
   display: block;
-  font-family: Helvetica;
-  color: black;
+  font-family: Arial;
+  font-size: 24px;
+  color: #800000;
   text-align: center;
+}
+
+.img {
+  height: 40%;
+  width: 40%;
+  align-items: center;
+  padding-left: 25%;
+}
+
+.bio {
+  color: #800000;
+  display: inline-flex;
+  font-family: Arial;
+  padding-left: 28%;
+  text-align: center;
+}
+
+.github {
+  display: inline-flex;
+  padding-left: 20px;
+}
+
+.link {
+  text-decoration: none;
+  font-family: Arial;
+  color: #800000;
+  padding-top: 5%;
+}
+
+.updated, .language, .text {
+  font-family: Arial;
+  font-size: 12px;
+  color: #808080;
+}
+
+.pagination {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding-top: 20px;
 }

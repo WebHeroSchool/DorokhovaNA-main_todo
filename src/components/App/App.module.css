@@ -5,13 +5,20 @@ body {
 .wrap {
   display: flex;
 	justify-content: center;
+  color: #F5FFFA;
 }
 
 .link {
   text-decoration: none;
+  font-family: Arial;
   color: #4b0082;
 }
 
 .sidebar {
   grid-area: sidebar;
+}
+
+.whsLogo {
+  padding: 10%;
+  width: 80%;
 }
